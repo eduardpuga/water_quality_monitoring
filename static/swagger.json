@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Water Quality Monitoring API",
+        "description": "API for managing water quality records."
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/water-quality": {
+            "post": {
+                "summary": "Add a new water quality record",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Water quality record to add",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "temperature": {
+                                    "type": "number"
+                                },
+                                "pH": {
+                                    "type": "number"
+                                },
+                                "conductivity": {
+                                    "type": "number"
+                                },
+                                "location": {
+                                    "type": "string"
+                                },
+                                "timestamp": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "temperature",
+                                "pH",
+                                "conductivity",
+                                "location",
+                                "timestamp"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Record successfully created"
+                    },
+                    "400": {
+                        "description": "Invalid data format"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Retrieve water quality records",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "start_date",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "No records found"
+                    }
+                }
+            }
+        },
+        "/water-quality/{id}": {
+            "put": {
+                "summary": "Update an existing water quality record",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Water quality record to update",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "temperature": {
+                                    "type": "number"
+                                },
+                                "pH": {
+                                    "type": "number"
+                                },
+                                "conductivity": {
+                                    "type": "number"
+                                },
+                                "location": {
+                                    "type": "string"
+                                },
+                                "timestamp": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Record successfully updated"
+                    },
+                    "404": {
+                        "description": "Record not found"
+                    },
+                    "400": {
+                        "description": "Invalid data format"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a water quality record",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Record successfully deleted"
+                    },
+                    "404": {
+                        "description": "Record not found"
+                    }
+                }
+            }
+        }
+    }
+}

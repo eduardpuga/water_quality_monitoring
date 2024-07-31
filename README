@@ -1,0 +1,5 @@
+To run the apis in local
+py app.py
+
+To see the documentation of the apis
+http://localhost:5000/swagger
