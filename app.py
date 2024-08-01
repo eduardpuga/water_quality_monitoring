@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_swagger_ui import get_swaggerui_blueprint
+import logging
 
 app = Flask(__name__)
 
@@ -40,8 +41,12 @@ def add_record():
     # Generate a new record ID
     record_id = len(water_quality_records) + 1
     # Add the new record to the in-memory storage
-    water_quality_records[record_id] = data
-    return jsonify({"id": record_id, "message": "Record successfully created."}), 201
+    try:
+        water_quality_records[record_id] = data
+        return jsonify({"id": record_id, "message": "Record successfully created."}), 201
+    except Exception as e:
+        logging.error(f"Error adding record: {e}")
+        return jsonify({"error": "Internal Server Error"}), 500
 
 # Endpoint to retrieve water quality records
 @app.route('/api/water-quality', methods=['GET'])

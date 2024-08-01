@@ -65,6 +65,9 @@
                     },
                     "400": {
                         "description": "Invalid data format"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -96,6 +99,9 @@
                     },
                     "404": {
                         "description": "No records found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -155,6 +161,9 @@
                     },
                     "400": {
                         "description": "Invalid data format"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -177,6 +186,9 @@
                     },
                     "404": {
                         "description": "Record not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
