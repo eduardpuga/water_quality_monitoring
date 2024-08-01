@@ -1,5 +1,12 @@
-To run the apis in local
-py app.py
+# Water Quality Monitoring API
 
-To see the documentation of the apis
+## Description
+A Flask-based RESTful API for monitoring water quality, including temperature, pH, and conductivity. This project also includes Swagger UI for interactive API documentation.
+
+# Installation
+git clone https://github.com/yourusername/water_quality_monitoring.git
+pip install -r requirements.txt
+python app.py
+py app.py
 http://localhost:5000/swagger
+

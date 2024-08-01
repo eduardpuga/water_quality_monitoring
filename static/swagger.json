@@ -29,6 +29,9 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "sensor_id": {
+                                    "type": "string"
+                                },
                                 "temperature": {
                                     "type": "number"
                                 },
@@ -46,6 +49,7 @@
                                 }
                             },
                             "required": [
+                                "sensor_id",
                                 "temperature",
                                 "pH",
                                 "conductivity",
@@ -120,6 +124,9 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "sensor_id": {
+                                    "type": "string"
+                                },
                                 "temperature": {
                                     "type": "number"
                                 },
